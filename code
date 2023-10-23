@@ -1,0 +1,24 @@
+#Debiye Göre Giriş Borusu Tasarımı İterasyon Kodu
+import math
+Yillar = [2027, 2042, 2057]
+Qdegerler = [2.468611, 3.809167, 4.248833]
+Vmax = 2
+Aboru2 = 0
+Rlist = []
+for year, values in zip(Yillar, [Qdegerler[i:i+3] for i in range(0, len(Qdegerler), 3)]):
+    print(f"Yıl {year}:")
+    for idx, value in enumerate(values, start=1):
+        Aboru = (value/(2/3))/(Vmax)
+        print("Aboru =",Aboru)
+        R = 0
+        Ayeni = 0 
+        Aboru2 = 0
+        Vyeni = 0
+        while Aboru >= Aboru2:
+            Aboru2 = math.pi*(R**2)/4
+            R = R + 0.00001
+        roundedR = round(R,2)
+        print("R= ",roundedR)
+        Rlist += [R]
+print(Rlist)
+#Debi değerleri değiştirilerek uygun boru çapı bulunabilir.
